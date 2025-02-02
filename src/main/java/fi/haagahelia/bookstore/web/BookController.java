@@ -17,10 +17,10 @@ public class BookController {
 		this.repository = repository;
 	}
 
-	@RequestMapping(value = { "/", "/Booklist" })
+	@RequestMapping(value = { "/", "/booklist" })
 	public String bookList(Model model) {
-		model.addAttribute("Books", repository.findAll());
-		return "bookList";
+		model.addAttribute("books", repository.findAll());
+		return "booklist";
 	}
 
 	@GetMapping("/index")
