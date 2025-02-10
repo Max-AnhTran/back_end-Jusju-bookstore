@@ -16,6 +16,12 @@
                 <td>Publication Year: <input type="text" th:field="*{publicationYear}" /></td>
                 <td>ISBN: <input type="text" th:field="*{isbn}" /></td>
                 <td>Price: <input type="text" th:field="*{price}" /></td>
+                <td>Category:
+                    <select id="category" th:field="*{category}">
+                        <option th:each="category : ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
+                        </option>
+                    </select>
+                </td>
                 <td><input type="submit" value="Add Book" /></td>
             </tr>
         </table>
