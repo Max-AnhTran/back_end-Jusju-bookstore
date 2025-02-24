@@ -2,6 +2,8 @@ package fi.haagahelia.bookstore.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +12,13 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long categoryid;
     private String name;
+
+    @JsonIgnoreProperties("category")  // ignoring 'department' attribute for all students
+	//@JsonIgnore   // ignoring students
+
+	// Thêm @IgnoreProperties("department") để tránh lỗi vòng lặp vô hạn
+	// Còn thêm @JsonIgnore thì sẽ không hiển thị thông tin students
+	// @JsonIgnoreProperties("department")  // ignoring 'department' attribute for all students
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Book> books;
