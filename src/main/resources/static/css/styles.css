@@ -1,0 +1,30 @@
+.container {
+    padding: 50px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__welcome {
+    font-size: 2rem;
+    color: blue;
+}
+
+.log-in {
+    max-width: 400px;
+    margin: 100px auto 0;
+    text-align: center;
+}
+
+
+.log-in__btn {
+    margin-top: 10px;
+}
+
+.form-signin label {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
