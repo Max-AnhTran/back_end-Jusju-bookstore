@@ -2,30 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Bookstore</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Bookstore - Add Book</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
-    <h1>Add new book to database</h1>
-    <form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
-        <table>
-            <tr>
-                <td>Title: <input type="text" th:field="*{title}" /></td>
-                <td>Author: <input type="text" th:field="*{author}" /></td>
-                <td>Publication Year: <input type="text" th:field="*{publicationYear}" /></td>
-                <td>ISBN: <input type="text" th:field="*{isbn}" /></td>
-                <td>Price: <input type="text" th:field="*{price}" /></td>
-                <td>Category:
-                    <select id="category" th:field="*{category}">
-                        <option th:each="category : ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
-                        </option>
-                    </select>
-                </td>
-                <td><input type="submit" value="Add Book" /></td>
-            </tr>
-        </table>
-    </form>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card shadow-sm p-4">
+                <h2 class="text-center mb-4">Add New Book</h2>
+
+                <form th:action="@{/addbook}" th:object="${book}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" th:field="*{title}" class="form-control" placeholder="Enter book title"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Author</label>
+                        <input type="text" th:field="*{author}" class="form-control" placeholder="Enter author's name"/>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Publication Year</label>
+                            <input type="text" th:field="*{publicationYear}" class="form-control" placeholder="Year"/>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">ISBN</label>
+                            <input type="text" th:field="*{isbn}" class="form-control" placeholder="ISBN Number"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input type="text" th:field="*{price}" class="form-control" placeholder="Enter price"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select id="category" th:field="*{category}" class="form-select">
+                            <option th:each="category : ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Add Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

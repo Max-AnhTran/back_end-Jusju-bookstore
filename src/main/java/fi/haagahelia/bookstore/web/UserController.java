@@ -16,7 +16,8 @@ import fi.haagahelia.bookstore.domain.AppUserRepository;
 
 @Controller
 public class UserController {
-	//@Autowired
+	
+	@Autowired
     private AppUserRepository repository; 
 	
 	//Constructor Injection

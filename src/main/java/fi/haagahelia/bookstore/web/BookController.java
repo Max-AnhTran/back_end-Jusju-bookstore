@@ -34,7 +34,7 @@ public class BookController {
 		return "booklist";
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/delete/{id}")
 	public String deleteStudent(@PathVariable("id") Long id, Model model) {
 		repository.deleteById(id);
@@ -58,7 +58,7 @@ public class BookController {
 		return "booklist";
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/edit/{id}")
 	public String showEditForm(@PathVariable Long id, Model model) {
 		Book book = repository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
